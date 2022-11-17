@@ -37,6 +37,7 @@ page fault occurs. A visual representation of the address-translation process is
 ![Address Translation](Img/address_translation.png)
 
 ### Handling Page Faults
+---
 Your program will implement demand paging as described in Section 10.2.
 The backing store is represented by the file BACKING_STORE.bin, a binary file of size 65, 536 bytes.
 When a page fault occurs, you will read in a 256-byte page from the BACKING_STORE and store it in
@@ -54,12 +55,14 @@ you do not need to be concerned about page replacements during a page fault. Lat
 replacement strategy will be required.
 
 ### Test File
+---
 We provide the file **addresses.txt**, which contains integer values representing logical
 addresses ranging from 0 to 65,535 (the size of the virtual address space.) Your program will open this
 file, read each logical address, and translate it to its corresponding physical address, and output the
 value of the signed byte at the physical address.
 
 ### How to Begin
+---
 First, write a simple program that extracts the page number and offset, based on:
 from the following integer numbers: **1,256, 32768, 128, 65534, 33153 (hint: divide each by 256, and
 calculate the amount(page) and the remainder(offset) – example, 256/256 == (page) 1 with
@@ -71,6 +74,7 @@ Perhaps the easiest way to do this is by using the operators for big-masking and
 can correctly establish the page number and offset from an integer number, you are ready to begin.
 
 ### In more detail...
+---
 Here is an example of bit masking: we want to mask off the page number to
 get the offset, how to do this? **Let’s look at the long version first...**
 
@@ -83,6 +87,7 @@ entries, so you will need to use a replacement strategy when you update a full T
 a FIFO or an LRU policy for updating your TLB.
 
 ### How to Run Your Program
+---
 Your program should run as follows: **./memmgr addresses.txt**
 Your program will read in the file addresses.txt, which contains 1,000 logical addresses ranging from 0
 to 65,535. Your program is to translate each logical address to a physical address, and determine the
@@ -106,6 +111,7 @@ Since the logical address in addresses.txt were generated randomly, and do not r
 access locality, do not expect to have a high TLB hit rate.
 
 ### Page Replacement
+---
 Thus far, this project has assumed that physical memory is the same size as
 the virtual address space. In practice, physical memory is typically much smaller than a virtual
 address space. This phase of the project now assumes using a smaller physical address space, with
