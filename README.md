@@ -9,7 +9,7 @@ understand the steps involved in translating logical to physical addresses. This
 page faults using demand paging, managing a TLB, and implementing a page-replacement algorithm.
 
 ## Specific
-*Image goes here*
+![specific](Img/specific.png)
 
 Your program will read a file containing several 32-it integer numbers that represent logical addresses.
 However, you need only be concerned with 16-bit addresses, so you must mask the rightmost 16 bits of
@@ -34,7 +34,7 @@ the case of a TLB hit, the frame number is obtained from the TLB. In the case of
 table must be consulted. In the latter case, either the frame number is obtained from the page table, or a
 page fault occurs. A visual representation of the address-translation process is:
 
-*Image goes here*
+![Address Translation](Img/address_translation.png)
 
 ### Handling Page Faults
 Your program will implement demand paging as described in Section 10.2.
@@ -65,7 +65,7 @@ from the following integer numbers: **1,256, 32768, 128, 65534, 33153 (hint: div
 calculate the amount(page) and the remainder(offset) – example, 256/256 == (page) 1 with
 remainder (offset)0).**
 
-*Image goes here*
+![Beginning](Img/begin.png)
 
 Perhaps the easiest way to do this is by using the operators for big-masking and bit-shifting. Once you
 can correctly establish the page number and offset from an integer number, you are ready to begin.
@@ -74,7 +74,7 @@ can correctly establish the page number and offset from an integer number, you a
 Here is an example of bit masking: we want to mask off the page number to
 get the offset, how to do this? **Let’s look at the long version first...**
 
-*Image goes here*
+![Detail](Img/detail.png)
 
 Initially, we suggest that you bypass the TLB, and use only a page table. You can integrate the TLB
 once your page table is working properly. Remember, address translation can work without a TLB; the
@@ -113,4 +113,4 @@ address space. This phase of the project now assumes using a smaller physical ad
 track of free page frames, as well as implementing a **page-replacement policy using either FIFO
 or LRU** (section 10.4) to resolve page faults when there is no free memory.
 
-*Image goes here*
+![output](Img/output.png)
