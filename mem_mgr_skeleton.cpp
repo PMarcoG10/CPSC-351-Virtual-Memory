@@ -2,7 +2,6 @@
 //
 // Name: Marco Gabriel
 // Class: CPSC 351-01
-// Professor: william mccarthy
 //
 #include <stdio.h>
 #include <stdlib.h>
